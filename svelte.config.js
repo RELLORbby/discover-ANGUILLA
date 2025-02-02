@@ -1,15 +1,13 @@
+
 import adapter from '@sveltejs/adapter-static';
 
-const config = {
+export default {
   kit: {
-    adapter: adapter({
-		strict: false
-	}),
+    // Use the base path for GitHub Pages
     paths: {
-      base: '/discover-ANGUILLA'
+      // Ensure this path is a root-relative path and doesn't end with a slash
+      base: process.env.NODE_ENV === 'production' ? '/discover-ANGUILLA' : ''
     },
-  },
+    adapter: adapter({strict: false}),
+  }
 };
-
-export default config;
-
